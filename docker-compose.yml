@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+    lb:
+        image: haproxy
+        ports:
+          - "5000:5000"
+        volumes:
+          - ./haproxy:/usr/local/etc/haproxy
+
+    container1:
+          image: container
+          environment:
+            - APPID=1111
+    container2: 
+          image: container
+          environment:
+            - APPID=2222
+    container3:
+          image: container
+          environment:
+            - APPID=3333
